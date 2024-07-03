@@ -1,5 +1,5 @@
-# Splash-osc
-Modern OSC interface for mpv player
+# Splash OSC
+Modern interface for mpv
 
 
 
