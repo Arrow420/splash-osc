@@ -4,4 +4,8 @@ Modern OSC interface for mpv player
 
 
 ## Screenshots
-![](.github/mpvnet_splash-osc-1.jpg)
+### Main
+![](.github/images/splash-osc-1.jpg)
+
+### With topbar
+![](.github/images/splash-osc-2.jpg)
