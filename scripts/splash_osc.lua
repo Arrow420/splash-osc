@@ -18,14 +18,14 @@ local user_opts = {
     valign = 1,                 -- vertical alignment, -1 (top) to 1 (bottom)
     halign = 0,                 -- horizontal alignment, -1 (left) to 1 (right)
     barmargin = 0,              -- vertical margin of top/bottombar
-    boxalpha = 120,             -- alpha of the background box
-	buttonalpha = 0,			-- alpha of buttons
+    boxalpha = 110,             -- alpha of the background box
+	buttonalpha = 40,			-- alpha of buttons
                                 -- 0 (opaque) to 255 (fully transparent)
-    hidetimeout = 350,          -- duration in ms until the OSC hides if no
+    hidetimeout = 100,          -- duration in ms until the OSC hides if no
                                 -- mouse movement. enforced non-negative for the
                                 -- user, but internally negative is "always-on".
-    fadeduration = 450,         -- duration of fade out in ms, 0 = no fade
-    deadzonesize = 0.8,         -- size of deadzone
+    fadeduration = 500,         -- duration of fade out in ms, 0 = no fade
+    deadzonesize = 1,           -- size of deadzone
     minmousemove = 0,           -- minimum amount of pixels the mouse has to
                                 -- move between ticks to make the OSC show up
     iamaprogrammer = false,     -- use native mpv values and disable OSC
@@ -34,7 +34,7 @@ local user_opts = {
 	font = "mpv-osd-symbols",	-- default osc font
     layout = "default",			-- default only!!
     seekbarstyle = "knob",      -- bar, diamond or knob
-    seekbarhandlesize = 1,	    -- size ratio of the diamond and knob handle
+    seekbarhandlesize = 3.5,	    -- size ratio of the diamond and knob handle
     seekrangestyle = "bar",		-- bar, line, slider, inverted or none
     seekrangeseparate = true,   -- wether the seekranges overlay on the bar-style seekbar
     seekrangealpha = 180,       -- transparency of seekranges
