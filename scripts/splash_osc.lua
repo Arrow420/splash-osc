@@ -637,6 +637,12 @@ end
 --
 
 -- returns nil or a chapter element from the native property chapter-list
+-- chapter titles that are just auto-generated timestamps (e.g. "00:06:35.562")
+-- are meaningless to display, so treat them as "no title"
+function is_timestamp_title(title)
+    return title ~= nil and title:match("^%d+:%d+:%d+[%.,]?%d*$") ~= nil
+end
+
 function get_chapter(possec)
     local cl = state.chapter_list  -- sorted, get latest before possec, if any
 
@@ -659,7 +665,7 @@ function render_elements(master_ass)
         if dur > 0 then
             local possec = get_slider_value(se) * dur / 100 -- of mouse pos
             local ch = get_chapter(possec)
-            if ch and ch.title and ch.title ~= "" then
+            if ch and ch.title and ch.title ~= "" and not is_timestamp_title(ch.title) then
                 state.forced_title = string.format(user_opts.chapter_fmt, ch.title)
             end
         end
@@ -901,7 +907,7 @@ function render_elements(master_ass)
 							
 							
 							local chapter = get_chapter(mp.get_property_number("duration", 0) * (sliderpos / 100))
-							local hasChapter = not (chapter == nil) and chapter.title and chapter.title ~= ""
+							local hasChapter = not (chapter == nil) and chapter.title and chapter.title ~= "" and not is_timestamp_title(chapter.title)
 							local showChapter = user_opts.showchaptertooltip
 							local chapterLabel = ""
 							
@@ -2856,4 +2862,3 @@ end)
 
 set_virt_mouse_area(0, 0, 0, 0, "input")
 set_virt_mouse_area(0, 0, 0, 0, "window-controls")
-	
